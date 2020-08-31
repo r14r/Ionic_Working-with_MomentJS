@@ -1,0 +1,9 @@
+{
+  "name": "timer",
+  "app_id": "",
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

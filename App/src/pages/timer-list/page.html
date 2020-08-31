@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Übersicht</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="timers">
+	<ion-row>
+		<ion-col width-50 offset-25>
+			<button (click)="itemTapped($event, null)" light round block>New Timer</button>
+		</ion-col>
+	</ion-row>
+	<ion-row *ngFor="let timer of timers">
+		<ion-col>
+			<ion-card (click)="itemTapped($event, timer)">
+				<ion-card-header>
+					<ion-icon name="time" item-left></ion-icon>
+					{{ timer.title }} {{ timer.description }}
+				</ion-card-header>
+				<ion-card-content>
+					<ion-col width-25>
+						{{ timer.countdown.years }}
+					</ion-col>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-content>

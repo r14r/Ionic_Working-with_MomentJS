@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Beispiele</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="page-samples">
+	<ion-grid>
+		<ion-item-group *ngFor="let sample of samples">
+			<ion-item-divider color="light">
+				{{ sample.key }}
+			</ion-item-divider>
+
+			<ion-row *ngFor="let code of sample.code">
+				<ion-col col-6>{{ code.key }}</ion-col>
+				<ion-col col-6 class=box><pre>{{ code.val }}</pre></ion-col>
+			</ion-row>
+		</ion-item-group>
+	</ion-grid>
+</ion-content>

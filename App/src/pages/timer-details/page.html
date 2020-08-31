@@ -1,0 +1,61 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle *ngIf="!timer">
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Timer Details</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<h3 text-center *ngIf="timer">
+		Title: {{timer.title}}
+	</h3>
+	<p text-center *ngIf="timer">
+		Description: <b>{{timer.description}}</b>
+	</p>
+
+	<p text-center *ngIf="timer">
+		ID: <b>{{timer.id}}</b>
+	</p>
+	<p text-center *ngIf="timer">
+		Created: <b>{{timer.created}}</b>
+	</p>
+	<p text-center *ngIf="timer">
+		DateTime: <b>{{timer.datetime}}</b>
+	</p>
+	<p text-center *ngIf="timer">
+		Years: <b>{{timer.years}}</b>
+	</p>
+	<p text-center *ngIf="timer">
+		Days: <b>{{timer.days}}</b>
+	</p>
+
+	<ion-list>
+		<ion-item>
+			<ion-label stacked>Title</ion-label>
+			<ion-input [(ngModel)]="timer.title"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Description</ion-label>
+			<ion-input [(ngModel)]="timer.description"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Date</ion-label>
+			<ion-datetime displayFormat="MMM DD YYYY, HH:mm" [min]="globals.minDate" [max]="globals.maxDate" [(ngModel)]="timer.datetime"></ion-datetime>
+		</ion-item>
+	</ion-list>
+
+	<button danger (click)="removeTimer()">Delete</button>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar position="bottom">
+		<ion-buttons start>
+			<button (click)="closeSettings()">Cancel</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button (click)="closeSettings(true)">Save</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-footer>
